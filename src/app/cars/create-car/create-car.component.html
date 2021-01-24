@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row space-top">
+      <div class="col-md-12">
+          <h1>Добави автомобил</h1>
+          <p>Моля, въведете всички полета</p>
+      </div>
+  </div>
+  <form [formGroup]="form" (submit)="createCar()"> 
+      <div class="row space-top">
+          <div class="col-md-4">
+              <div class="form-group">
+                  <label class="form-control-label" for="new-make">Марка</label>
+                  <input class="form-control" formControlName="make" id="new-make" type="text">
+              </div> 
+              <div class="alert alert-danger" *ngIf="f.make.touched && f.make.errors?.required">
+                Това поле е задължително. 
+              </div>
+              <div class="form-group has-success">
+                  <label class="form-control-label" for="new-model">Модел</label> 
+                  <input class="form-control is-valid" formControlName="model" id="new-model" type="text"> 
+              </div> 
+              <div class="alert alert-danger" *ngIf="f.model.touched && f.model.errors?.required">
+                Това поле е задължително.  
+              </div> 
+              <div class="form-group has-danger">
+                  <label class="form-control-label" for="new-year">Година</label>
+                  <input class="form-control is-invalid" formControlName="year" id="new-year" type="number"> 
+              </div> 
+              <div class="alert alert-danger" *ngIf="f.year.touched && f.year.errors?.required">
+                Това поле е задължително. 
+              </div> 
+              <div class="alert alert-danger" *ngIf="f.year.errors?.max"> 
+                Можете да качите кола до 2005 година.  
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label" for="new-description">Описание</label>
+                  <input class="form-control" formControlName="description" id="new-description" type="text">
+              </div> 
+              <div class="alert alert-danger" *ngIf="f.description.touched && f.description.errors?.required">
+                Това поле е задължително.  
+              </div> 
+              <div class="alert alert-danger" *ngIf="f.description.errors?.minlength"> 
+                Моля въведете подробно описание. 
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="form-group">
+                  <label class="form-control-label" for="new-price">Цена (BGN)</label>
+                  <input class="form-control" formControlName="price" id="new-price" type="number">
+              </div> 
+              <div class="alert alert-danger" *ngIf="f.price.touched && f.price.errors?.required">
+                Това поле е задължително. 
+              </div> 
+              <div class="form-group">
+                  <label class="form-control-label" for="new-image">Снимка (URL)</label>
+                  <input class="form-control" formControlName="image" id="new-image" type="text">
+              </div> 
+              <div class="alert alert-danger" *ngIf="f.image.touched && f.image.errors?.required">
+                Това поле е задължително.  
+              </div>
+              <div class="form-group">
+                  <label class="form-control-label" for="new-material">Пробег (km)</label>
+                  <input class="form-control" formControlName="material" id="new-material" type="text">
+              </div> 
+              <div class="alert alert-danger" *ngIf="f.material.touched && f.material.errors?.required">
+                Това поле е задължително.  
+              </div> 
+              <button type="submit" class="btn btn-primary" value="Create" [disabled]="invalid"> Add </button> 
+          </div>
+      </div>
+  </form>
+</div> 

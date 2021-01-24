@@ -1,0 +1,33 @@
+<h1>
+  Здравейте, {{username}}! 
+</h1> 
+
+<div class="container">
+  <div class="row space-top">
+      <div class="col-md-12">
+          <h1>Добре дошли в koli4ka.bg</h1>
+          <p>Тук ще намерите уникални автомобили от 90-те и ранните 2000, продавани единствено от ценители за ценители, с доказан произход и сервизна история. Избери своят мечтан автомобил или продай личния си уникат. </p>
+      </div>
+  </div>
+      <div class="row space-top">
+          <div class="col-md-4" *ngFor="let car of cars$ | async">
+              <div class="card text-white bg-primary">
+                  <div class="card-body">
+                      <blockquote class="card-blockquote">
+                          <img src="{{car.image}}" />
+                          <p>{{car.make}}</p>
+                          <footer> 
+                              <cite title="Source Title">{{car.model}}</cite>
+                          </footer> 
+                          <footer> 
+                            <cite title="Source Title">{{car.price}} BGN</cite>
+                        </footer>
+                          <div class="pull-right">
+                              <a [routerLink]="['/cars/details/', car._id]" class="btn btn-info">Детайли</a>
+                          </div>
+                      </blockquote>
+                  </div>
+              </div>
+          </div>
+      </div>
+</div> 
